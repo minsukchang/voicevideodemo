@@ -6,7 +6,7 @@ html, body {
 }
 
 h1, p, button, ul {
-	color:#fff;
+	color:#000;
 }
 
 a {
@@ -25,7 +25,7 @@ ul {
 	padding:0.5em 1em;
 }
 li[data-state=highlight] {
-	color:red;
+	color:white;
 }
 
 video {
@@ -35,7 +35,7 @@ video {
 }
 
 button {
-	border:1px solid #fff;
+	border:1px solid #000;
 	padding:0.5em 1em;
 	margin-top:1em;
 	font-size:1em;
