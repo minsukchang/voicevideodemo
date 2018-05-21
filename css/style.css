@@ -25,7 +25,7 @@ ul {
 	padding:0.5em 1em;
 }
 li[data-state=highlight] {
-	color:white;
+	color:black;
 }
 
 video {
@@ -51,7 +51,7 @@ button[disabled] {
 	cursor:auto;
 }
 button[disabled]:hover {
-	border:1px solid #fff;
+	border:1px solid red;
 }
 
 .msg {
@@ -65,7 +65,7 @@ button[disabled]:hover {
 }
 
 .rec-status {
-	color:#fff;
+	color:red;
 	margin-top:1em;
 }
 .rec-status span {
