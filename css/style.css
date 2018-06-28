@@ -17,8 +17,7 @@ abbr {
 }
 
 div{
-	align-self: center
-	align-content: center
+	align-self: center;
 	max-width: 640px
 }
 ul {
