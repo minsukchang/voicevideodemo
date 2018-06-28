@@ -69,13 +69,13 @@
 							// Check the current volume setting of the video
 							var vol = Math.floor(video.volume * 10) / 10;
 							// Increase the volume
-							if (userSaid(str, 'increase')) {
+							if (userSaid(str, 'up')) {
 								if (vol >= 0.9) video.volume = 1;
 								else video.volume += 0.1;
 								highlightCommand('vidVolInc');
 							}
 							// Decrease the volume
-							else if (userSaid(str, 'decrease')) {
+							else if (userSaid(str, 'down')) {
 								if (vol <= 0.1) video.volume = 0;
 								else video.volume -= 0.1;
 								highlightCommand('vidVolDec');
