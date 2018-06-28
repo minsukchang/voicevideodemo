@@ -17,6 +17,7 @@ abbr {
 }
 
 div{
+	align-self: center
 	align-content: center
 	max-width: 640px
 }
