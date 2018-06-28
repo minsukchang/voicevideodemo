@@ -16,11 +16,8 @@ abbr {
 	border:none;
 }
 
-div{
-	align-self: center;
-	max-width: 640px
-}
 ul {
+	text-align:left;
 	border:1px solid #fff;
 	background-color:#ffffff;
 	width:20%;
