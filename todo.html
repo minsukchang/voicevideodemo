@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head lang="en-IE">
+	<meta charset="utf-8">	
+	<title>Pipeline and Todo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/style.css" rel="stylesheet" media="all">
+</head>
+<body>
+	<main role="main">
+		<h1>Pipeline</h1>
+		<div> Download video + subtitle from youtube (youtube-dl)</div>
+        <div> convert subtitle in vtt to srt </div>
+        <div> run the subtitles through a forced aligner (gentle) </div>
+		<div> Do segmentation <div>
+        <ul>
+            <li>Vision</li>
+            <ul>
+                <li>off the shelf shot change detection (ML)</li>
+                <li>more primitive vision like histogram + edge</li>
+            </ul>
+            <li>Audio Transcript</li>
+            <ul>
+                <li>each sentence gets a segment </li>
+                <li>sequential topic models</li>
+                <li>maybe some other things</li>
+            </ul>
+            <li>Time</li>
+            <ul>
+                <li>equal time, but how many segments? </li>
+            </ul>
+            <li>User interaction</li>
+            <ul>
+                <li>where users want to go to</li>
+                <li>what users want to do </li>
+            </ul>
+		</ul>
+	</main>
+	
+</body>
+</html>
