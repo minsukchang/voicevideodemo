@@ -4,6 +4,7 @@
 	var recStatus = document.getElementById('recStatus');
 	var startRecBtn = document.getElementById('startRecBtn');
 	var stopRecBtn = document.getElementById('stopRecBtn');
+	var recText = document.getElementById('recText');
 
 	// Define a new speech recognition instance
 	var rec = null;
@@ -46,7 +47,8 @@
 	       			// If the result is equal to or greater than the required threshold
 	       			if (parseFloat(e.results[i][0].confidence) >= parseFloat(confidenceThreshold)) {
 		       			var str = e.results[i][0].transcript;
-		       			console.log('Recognised: ' + str);
+						console.log('Recognised: ' + str);
+						recText.innerHTML = str;
 		       			// If the user said 'video' then parse it further
 		       			
 						if (userSaid(str, 'replay')) {
@@ -94,7 +96,8 @@
 					
 	       			}
 	        	}
-	    	}
+			}
+			//recStatus.innerHTML += str;
 		};
 
 		// Start speech recognition
