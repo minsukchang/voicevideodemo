@@ -45,7 +45,7 @@ button {
 	margin-top:1em;
 	font-size:1em;
 	cursor:pointer;
-	background-color:orange;
+	background-color:rgb(255, 203, 106);
 	font-variant:small-caps;
 }
 button:hover {
@@ -70,11 +70,12 @@ button[disabled]:hover {
 }
 
 .rec-status {
-	color:black;
+	color:red;
 	margin-top:1em;
 }
 .rec-text{
-	color:red;
+	color:blue;
+	font-size: x-large;
 	margin-top:1em;
 }
 .rec-status span {
