@@ -70,6 +70,10 @@ button[disabled]:hover {
 }
 
 .rec-status {
+	color:black;
+	margin-top:1em;
+}
+.rec-text{
 	color:red;
 	margin-top:1em;
 }
