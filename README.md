@@ -1,4 +1,4 @@
-(http://www.iandevlin.com/blog/2014/01/javascript/using-the-web-speech-api-to-control-a-html5-video) if you like.
+based on http://www.iandevlin.com/blog/2014/01/javascript/using-the-web-speech-api-to-control-a-html5-video
 
 What do I need?
 ===============
