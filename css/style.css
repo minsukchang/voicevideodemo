@@ -24,9 +24,9 @@ div{
 ul {
 	border:1px solid #fff;
 	background-color:#ffffff;
-	width:20%;
+	width:;
 	margin:0 auto;
-	list-style-type:none;
+	list-style-type:circle;
 	padding:0.5em 1em;
 }
 li[data-state=highlight] {
