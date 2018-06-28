@@ -81,3 +81,8 @@ button[disabled]:hover {
 .rec-status span {
 	margin-left:0.5em;
 }
+
+.div-a{
+	align-content: left;
+	align-self: center;
+}
