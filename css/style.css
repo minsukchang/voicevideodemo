@@ -16,6 +16,9 @@ abbr {
 	border:none;
 }
 
+div{
+	max-width: 640px
+}
 ul {
 	border:1px solid #fff;
 	background-color:#ffffff;
