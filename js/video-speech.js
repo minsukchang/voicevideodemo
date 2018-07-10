@@ -79,7 +79,7 @@
 							if (vol >= 0.9) video.volume = 1;
 							else video.volume += 0.1;
 							highlightCommand('vidVolInc');
-						
+						}
 						// Decrease the volume
 						else if (userSaid(str, 'softer')) {
 							// Check the current volume setting of the video
