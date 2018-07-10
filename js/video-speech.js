@@ -121,5 +121,5 @@
 		// Setup listeners for the start and stop recognition buttons
 		startRecBtn.addEventListener('click', startRec, false);
 		stopRecBtn.addEventListener('click', stopRec, false);
-	}
-});
+	
+})();
