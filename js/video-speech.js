@@ -111,12 +111,12 @@
 		// Start speech recognition
 		var startRec = function() {
 			rec.start();
-			recStatus.innerHTML = 'recognising';
+			recStatus.innerHTML = 'recognizer on';
 		}
 		// Stop speech recognition
 		var stopRec = function() {
 			rec.stop();
-			recStatus.innerHTML = 'not recognising';
+			recStatus.innerHTML = 'recognizer off';
 		}
 		// Setup listeners for the start and stop recognition buttons
 		startRecBtn.addEventListener('click', startRec, false);
