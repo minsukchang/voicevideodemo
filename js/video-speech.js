@@ -66,7 +66,7 @@
 							video.pause();
 							highlightCommand('vidStop');
 						}
-						else if (userSaid(str, 'pause')) {
+						else if (userSaid(str, 'hold on')) {
 							video.pause();
 							highlightCommand('vidStop');
 						}
