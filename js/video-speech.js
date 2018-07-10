@@ -122,4 +122,4 @@
 		startRecBtn.addEventListener('click', startRec, false);
 		stopRecBtn.addEventListener('click', stopRec, false);
 	}
-})();
+});
