@@ -32,6 +32,9 @@ li[data-state=highlight] {
 video {
 	display:block;
 	margin:0 auto;
+	width: 60%    !important;
+	height: auto   !important;
+
 }
 
 button {
