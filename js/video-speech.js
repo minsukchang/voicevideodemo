@@ -91,12 +91,12 @@
 						}
 
 						// Turn the volume off (mute)
-						else if (userSaid(str, 'off')) {
+						else if (userSaid(str, 'volume off')) {
 							video.muted = true;
 							highlightCommand('vidVolOff');
 						}
 						// Turn the volume on (unmute)
-						else if (userSaid(str, 'on')) {
+						else if (userSaid(str, 'volume on')) {
 							video.muted = false;
 							highlightCommand('vidVolOn');
 						}
