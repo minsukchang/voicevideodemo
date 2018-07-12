@@ -17,8 +17,12 @@
     	stopRecBtn.setAttribute('disabled', 'true');
     }
     if (rec) {
-		rec.continuous = true;
-		rec.interimResults = false;
+		
+		rec.continuous = false;
+		rec.interimResults = true;
+
+		//rec.continuous = true;
+		//rec.interimResults = false;
 		rec.lang = 'en';
 
 		// Define a threshold above which we are confident(!) that the recognition results are worth looking at 
