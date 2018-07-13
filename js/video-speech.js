@@ -33,6 +33,11 @@
 			return str.indexOf(s) > -1;
 		}
 
+		var skip = function(value) {
+			var video = document.getElementById(video);
+			video.currentTime += value;
+		} 
+
 		// Highlights the relevant command that was recognised in the command list for display purposes
 		var highlightCommand = function(cmd) {
 			var el = document.getElementById(cmd); 
@@ -68,7 +73,7 @@
 						}
 
 						//rewind 10sec
-						else if (userSaid(str, 'next')) {
+						else if (userSaid(str, 'previous')) {
 							video.currentTime -= 10;
 							highlightCommand('vidPlay');
 						}
