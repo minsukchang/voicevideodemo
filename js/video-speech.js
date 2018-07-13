@@ -87,7 +87,7 @@
 						
 						// fastforward 10sec
 						else if (userSaid(str, 'go to marker')) {
-							video.currentTime += marker;
+							video.currentTime = marker;
 							//highlightCommand('vidPlay');
 						}
 
