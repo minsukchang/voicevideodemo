@@ -5,6 +5,7 @@
 	var startRecBtn = document.getElementById('startRecBtn');
 	var stopRecBtn = document.getElementById('stopRecBtn');
 	var recText = document.getElementById('recText');
+	var marker = 0;
 
 	// Define a new speech recognition instance
 	var rec = null;
@@ -63,35 +64,46 @@
 						if (userSaid(str, 'replay')) {
 							video.currentTime = 0;
 							video.play();
-							highlightCommand('vidReplay');
+							//highlightCommand('vidReplay');
 						}
 						
 						// fastforward 10sec
 						else if (userSaid(str, 'next')) {
 							video.currentTime += 10;
-							highlightCommand('vidPlay');
+							//highlightCommand('vidPlay');
 						}
 
 						//rewind 10sec
 						else if (userSaid(str, 'previous')) {
 							video.currentTime -= 10;
-							highlightCommand('vidPlay');
+							//highlightCommand('vidPlay');
 						}
 
+						// fastforward 10sec
+						else if (userSaid(str, 'set marker here')) {
+							marker = video.currentTime;
+							//highlightCommand('vidPlay');
+						}
 						
+						// fastforward 10sec
+						else if (userSaid(str, 'go to marker')) {
+							video.currentTime += marker;
+							//highlightCommand('vidPlay');
+						}
+
 						// Play the video
 						else if (userSaid(str, 'play')) {
 							video.play();
-							highlightCommand('vidPlay');
+							//highlightCommand('vidPlay');
 						}
 						// Stop the video
 						else if (userSaid(str, 'stop')) {
 							video.pause();
-							highlightCommand('vidStop');
+							//highlightCommand('vidStop');
 						}
 						else if (userSaid(str, 'hold on')) {
 							video.pause();
-							highlightCommand('vidStop');
+							//highlightCommand('vidStop');
 						}
 						// If the user said 'volume' then parse it even further
 						else if (userSaid(str, 'louder')) {
@@ -101,7 +113,7 @@
 							
 							if (vol >= 0.9) video.volume = 1;
 							else video.volume += 0.1;
-							highlightCommand('vidVolInc');
+							//highlightCommand('vidVolInc');
 						}
 						// Decrease the volume
 						else if (userSaid(str, 'softer')) {
@@ -110,18 +122,18 @@
 							
 							if (vol <= 0.1) video.volume = 0;
 							else video.volume -= 0.1;
-							highlightCommand('vidVolDec');
+							//highlightCommand('vidVolDec');
 						}
 
 						// Turn the volume off (mute)
 						else if (userSaid(str, 'volume off')) {
 							video.muted = true;
-							highlightCommand('vidVolOff');
+							//highlightCommand('vidVolOff');
 						}
 						// Turn the volume on (unmute)
 						else if (userSaid(str, 'volume on')) {
 							video.muted = false;
-							highlightCommand('vidVolOn');
+							//highlightCommand('vidVolOn');
 						}
 						}
 					
