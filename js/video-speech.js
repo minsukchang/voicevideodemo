@@ -83,7 +83,7 @@
 						// fastforward 10sec
 						else if (userSaid(str, 'set marker here')) {
 							marker = video.currentTime;
-							markerText.innerHTML = marker;
+							markerText.innerHTML = Math.round(marker*10/10) + " seconds";
 							//highlightCommand('vidPlay');
 						}
 						
