@@ -12,6 +12,9 @@
 		<video id="v" controls preload="metadata">
 			<source src="video/flossdance.mp4" type="video/mp4">
 		</video>
+		<input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
+
+
 		<div class="rec-status">Recogniser status:<span id="recStatus"> OFF </span></div>
 		<br><br>
 	
@@ -40,6 +43,15 @@
 		<!-- <div><a href="todo.html">pipeline and todo</a></div> -->
 	</main>
 	<script src="js/video-speech.js" defer></script>
+	<script>
+		function SetVolume(val)
+		{
+			var player = document.getElementById('video');
+			console.log('Before: ' + player.volume);
+			player.volume = val / 100;
+			console.log('After: ' + player.volume);
+		}
+	</script>
 	<!--
 	<script>
 		var _gaq=[['_setAccount','UA-2046650-1'],['_trackPageview']];(function(a,b){var c=a.createElement(b),d=a.getElementsByTagName(b)[0];c.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";d.parentNode.insertBefore(c,d)})(document,"script");
