@@ -83,7 +83,7 @@
 						// fastforward 10sec
 						else if (userSaid(str, 'set marker here')) {
 							marker = video.currentTime;
-							markerText.innerHTML = Math.round(marker*10/10) + " seconds";
+							markerText.innerHTML = Math.round(marker*10/10);
 							//highlightCommand('vidPlay');
 						}
 						
@@ -107,6 +107,10 @@
 							video.pause();
 							//highlightCommand('vidStop');
 						}
+						else if (userSaid(str, 'wait')) {
+							video.pause();
+							//highlightCommand('vidStop');
+						}
 						// If the user said 'volume' then parse it even further
 						else if (userSaid(str, 'louder')) {
 							// Check the current volume setting of the video
@@ -119,6 +123,14 @@
 						}
 						// Decrease the volume
 						else if (userSaid(str, 'softer')) {
+							// Check the current volume setting of the video
+							var vol = Math.floor(video.volume * 10) / 10;
+							
+							if (vol <= 0.1) video.volume = 0;
+							else video.volume -= 0.1;
+							//highlightCommand('vidVolDec');
+						}
+						else if (userSaid(str, 'quieter')) {
 							// Check the current volume setting of the video
 							var vol = Math.floor(video.volume * 10) / 10;
 							
