@@ -18,8 +18,8 @@
     }
     if (rec) {
 		
-		rec.continuous = false;
-		rec.interimResults = true;
+		rec.continuous = true;
+		rec.interimResults = false;
 
 		//rec.continuous = true;
 		//rec.interimResults = false;
