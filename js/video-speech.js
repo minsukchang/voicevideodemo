@@ -5,6 +5,7 @@
 	var startRecBtn = document.getElementById('startRecBtn');
 	var stopRecBtn = document.getElementById('stopRecBtn');
 	var recText = document.getElementById('recText');
+	var markerText = document.getElementById('markerText');
 	var marker = 0;
 
 	// Define a new speech recognition instance
@@ -82,6 +83,7 @@
 						// fastforward 10sec
 						else if (userSaid(str, 'set marker here')) {
 							marker = video.currentTime;
+							markerText.innerHTML = marker;
 							//highlightCommand('vidPlay');
 						}
 						
