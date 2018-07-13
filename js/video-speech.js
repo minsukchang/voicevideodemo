@@ -60,6 +60,20 @@
 							video.play();
 							highlightCommand('vidReplay');
 						}
+						
+						// fastforward 10sec
+						else if (userSaid(str, 'next')) {
+							video.currentTime += 10;
+							highlightCommand('vidPlay');
+						}
+
+						//rewind 10sec
+						else if (userSaid(str, 'next')) {
+							video.currentTime -= 10;
+							highlightCommand('vidPlay');
+						}
+
+						
 						// Play the video
 						else if (userSaid(str, 'play')) {
 							video.play();
