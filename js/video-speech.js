@@ -68,13 +68,13 @@
 						}
 						
 						// fastforward 10sec
-						else if (userSaid(str, 'next')) {
+						else if (userSaid(str, 'fastforward')) {
 							video.currentTime += 10;
 							//highlightCommand('vidPlay');
 						}
 
 						//rewind 10sec
-						else if (userSaid(str, 'previous')) {
+						else if (userSaid(str, 'rewind')) {
 							video.currentTime -= 10;
 							//highlightCommand('vidPlay');
 						}
