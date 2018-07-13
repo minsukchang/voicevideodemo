@@ -69,7 +69,7 @@
 						}
 						
 						// fastforward 10sec
-						else if (userSaid(str, 'fastforward')) {
+						else if (userSaid(str, 'fast forward')) {
 							video.currentTime += 10;
 							//highlightCommand('vidPlay');
 						}
