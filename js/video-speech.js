@@ -8,6 +8,8 @@
 	var markerText = document.getElementById('markerText');
 	var marker = 0;
 
+	var equaltime = [0, 68.4, 136.8, 205.2, 273.6, 342];
+
 	// Define a new speech recognition instance
 	var rec = null;
 	try {
@@ -80,16 +82,41 @@
 							//highlightCommand('vidPlay');
 						}
 
-						// fastforward 10sec
+						else if (userSaid(str, 'next step')) {
+							var now = video.currentTime;
+							for (var i = 0; i < equaltime.length; i++) { 
+								if (now > equaltime[i] && now < equaltime[i+1]){
+									video.currentTime = equaltime[i+1]
+								}
+							}
+							//highlightCommand('vidPlay');
+						}
+
+						else if (userSaid(str, 'previous step')) {
+							var now = video.currentTime;
+							for (var i = 0; i < equaltime.length; i++) { 
+								if (now > equaltime[i] && now < equaltime[i+1]){
+									video.currentTime = equaltime[i-1]
+								}
+							}
+							//highlightCommand('vidPlay');
+						}
+
+						// setting a custom marker
 						else if (userSaid(str, 'set marker here')) {
 							marker = video.currentTime;
 							markerText.innerHTML = Math.round(marker*10/10);
 							//highlightCommand('vidPlay');
 						}
 						
-						// fastforward 10sec
+						// going to the custom marker
 						else if (userSaid(str, 'go to marker')) {
 							video.currentTime = marker;
+							//highlightCommand('vidPlay');
+						}
+
+						else if (userSaid(str, 'rewind')) {
+							video.currentTime -= 10;
 							//highlightCommand('vidPlay');
 						}
 
