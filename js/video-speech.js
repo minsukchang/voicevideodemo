@@ -7,8 +7,12 @@
 	var recText = document.getElementById('recText');
 	var markerText = document.getElementById('markerText');
 	var marker = 0;
+	var next = document.getElementById('nextBtn');
 
 	var equaltime = [0, 68.4, 136.8, 205.2, 273.6, 342];
+	var textbased = [];
+	var shotchange = [];
+	var videocaption = [];
 
 	// Define a new speech recognition instance
 	var rec = null;
@@ -51,6 +55,8 @@
 			}, 3000);
 		}
 
+		console.log(rec.onresult[0][0])
+
 		// Process the results when they are returned from the recogniser
 		rec.onresult = function(e) {
 			// Check each result starting from the last one
@@ -72,20 +78,19 @@
 						
 						// fastforward 10sec
 						else if (userSaid(str, 'fast forward')) {
-							video.currentTime += 10;
+							skip(10);
 							//highlightCommand('vidPlay');
 						}
 
 						//rewind 10sec
 						else if (userSaid(str, 'rewind')) {
-							video.currentTime -= 10;
+							skip(-10);
 							//highlightCommand('vidPlay');
 						}
 
-						else if (userSaid(str, 'next step')) {
+						else if (userSaid(str, 'next')) {
 							console.log(video.currentTime);
 							var now = video.currentTime;
-							var i;
 							for (i = equaltime.length; i > 0 ; i--) { 
 								if (now < equaltime[i]){
 									video.currentTime = equaltime[i+1];
@@ -95,7 +100,7 @@
 							//highlightCommand('vidPlay');
 						}
 
-						else if (userSaid(str, 'previous step')) {
+						else if (userSaid(str, 'before')) {
 							var now = video.currentTime;
 							for (var i = 0; i < equaltime.length; i++) { 
 								if (now > equaltime[i] && now < equaltime[i+1]){
@@ -170,12 +175,12 @@
 						}
 
 						// Turn the volume off (mute)
-						else if (userSaid(str, 'volume off')) {
+						else if (userSaid(str, 'mute')) {
 							video.muted = true;
 							//highlightCommand('vidVolOff');
 						}
 						// Turn the volume on (unmute)
-						else if (userSaid(str, 'volume on')) {
+						else if (userSaid(str, 'unmute')) {
 							video.muted = false;
 							//highlightCommand('vidVolOn');
 						}
