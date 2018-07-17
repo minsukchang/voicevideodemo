@@ -83,10 +83,11 @@
 						}
 
 						else if (userSaid(str, 'next step')) {
+							console.log(video.currentTime);
 							var now = video.currentTime;
 							for (var i = 0; i < equaltime.length; i++) { 
 								if (now > equaltime[i] && now < equaltime[i+1]){
-									video.currentTime = equaltime[i+1]
+									video.currentTime = equaltime[i+1];
 								}
 							}
 							//highlightCommand('vidPlay');
