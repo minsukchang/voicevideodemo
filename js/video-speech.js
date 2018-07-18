@@ -106,8 +106,6 @@
 
 						else if (userSaid(str, 'before')) {
 							var now = video.currentTime;
-							
-							}
 							//highlightCommand('vidPlay');
 						}
 
@@ -189,9 +187,9 @@
 					
 	       			}
 	        	}
-			}
+			};
 			//recStatus.innerHTML += str;
-		};
+		}
 
 		// Start speech recognition
 		var startRec = function() {
