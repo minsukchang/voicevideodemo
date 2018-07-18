@@ -7,7 +7,7 @@
 	var recText = document.getElementById('recText');
 	var markerText = document.getElementById('markerText');
 	var marker = 0;
-	var next = document.getElementById('nextBtn');
+	//var next = document.getElementById('nextBtn');
 
 	var equaltime = [0, 68.4, 136.8, 205.2, 273.6, 342];
 	var stepbased = [33.589196, 53.787267, 77.805879, 119.321606, 164.855763, 184.099407];
