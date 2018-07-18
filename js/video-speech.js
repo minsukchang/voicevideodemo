@@ -55,10 +55,9 @@
 			}, 3000);
 		}
 
-		console.log(rec.onresult[0][0])
-
 		// Process the results when they are returned from the recogniser
 		rec.onresult = function(e) {
+			console.log(e.results[0][0].transcript);
 			// Check each result starting from the last one
 			for (var i = e.resultIndex; i < e.results.length; ++i) {
 				// If this is a final result
@@ -68,7 +67,6 @@
 		       			var str = e.results[i][0].transcript;
 						console.log('Recognised: ' + str);
 						recText.innerHTML = str;
-		       			// If the user said 'video' then parse it further
 		       			
 						if (userSaid(str, 'replay')) {
 							video.currentTime = 0;
