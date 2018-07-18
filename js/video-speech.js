@@ -58,10 +58,10 @@
 
 		var nextStep = function(now){
 			var i;
-			for (i = 0; i < equaltime.length ; i++) { 
+			for (i = 0; i < stepbased.length ; i++) { 
 				if (stepbased[i] < now && now < stepbased[i+1]){
 					video.currentTime = stepbased[i+1];
-					console.log(video.currentTime);
+					console.log("skipped to: "+video.currentTime);
 				}
 			}
 		}
@@ -99,8 +99,7 @@
 
 						else if (userSaid(str, 'next')) {
 							console.log(video.currentTime);
-							var now = video.currentTime;
-							nextStep(now);
+							nextStep(video.currentTime);
 							//highlightCommand('vidPlay');
 						}
 
