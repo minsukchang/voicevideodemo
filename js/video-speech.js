@@ -67,7 +67,7 @@
 
 		// Process the results when they are returned from the recogniser
 		rec.onresult = function(e) {
-			console.log(e.results[0][0].transcript);
+			// console.log(e.results[0][0].transcript);
 			// Check each result starting from the last one
 			for (var i = e.resultIndex; i < e.results.length; ++i) {
 				// If this is a final result
