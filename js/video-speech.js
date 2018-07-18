@@ -10,6 +10,7 @@
 	var next = document.getElementById('nextBtn');
 
 	var equaltime = [0, 68.4, 136.8, 205.2, 273.6, 342];
+	var stepbased = [33.589196, 53.787267, 77.805879, 119.321606, 164.855763, 184.099407]
 	var textbased = [];
 	var shotchange = [];
 	var videocaption = [];
@@ -55,6 +56,15 @@
 			}, 3000);
 		}
 
+		var nextStep = function(now){
+			var i;
+			for (i = 0; i < equaltime.length ; i++) { 
+				if (equaltime[i] < now && now < equaltime[i+1]){
+					video.currentTime = equaltime[i+1];
+					console.log(video.currentTime);
+				}
+		}
+
 		// Process the results when they are returned from the recogniser
 		rec.onresult = function(e) {
 			console.log(e.results[0][0].transcript);
@@ -89,21 +99,14 @@
 						else if (userSaid(str, 'next')) {
 							console.log(video.currentTime);
 							var now = video.currentTime;
-							for (i = equaltime.length; i > 0 ; i--) { 
-								if (now < equaltime[i]){
-									video.currentTime = equaltime[i+1];
-									console.log(video.currentTime);
-								}
+							nextStep(now);
 							}
 							//highlightCommand('vidPlay');
 						}
 
 						else if (userSaid(str, 'before')) {
 							var now = video.currentTime;
-							for (var i = 0; i < equaltime.length; i++) { 
-								if (now > equaltime[i] && now < equaltime[i+1]){
-									video.currentTime = equaltime[i-1]
-								}
+							
 							}
 							//highlightCommand('vidPlay');
 						}
