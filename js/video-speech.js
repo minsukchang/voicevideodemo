@@ -63,6 +63,7 @@
 					video.currentTime = stepbased[i+1];
 					console.log(video.currentTime);
 				}
+			}
 		}
 
 		// Process the results when they are returned from the recogniser
