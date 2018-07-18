@@ -15,6 +15,16 @@
 	var shotchange = [];
 	var videocaption = [];
 
+	var nextStep = function(now){
+		var i;
+		for (i = 0; i < stepbased.length ; i++) { 
+			if (stepbased[i] < now && now < stepbased[i+1]){
+				video.currentTime = stepbased[i+1];
+				console.log("skipped to: "+video.currentTime);
+			}
+		}
+	}
+
 	// Define a new speech recognition instance
 	var rec = null;
 	try {
@@ -56,15 +66,7 @@
 			}, 3000);
 		}
 
-		var nextStep = function(now){
-			var i;
-			for (i = 0; i < stepbased.length ; i++) { 
-				if (stepbased[i] < now && now < stepbased[i+1]){
-					video.currentTime = stepbased[i+1];
-					console.log("skipped to: "+video.currentTime);
-				}
-			}
-		}
+
 
 		// Process the results when they are returned from the recogniser
 		rec.onresult = function(e) {
