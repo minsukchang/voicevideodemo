@@ -59,8 +59,8 @@
 		var nextStep = function(now){
 			var i;
 			for (i = 0; i < equaltime.length ; i++) { 
-				if (equaltime[i] < now && now < equaltime[i+1]){
-					video.currentTime = equaltime[i+1];
+				if (stepbased[i] < now && now < stepbased[i+1]){
+					video.currentTime = stepbased[i+1];
 					console.log(video.currentTime);
 				}
 		}
@@ -100,7 +100,6 @@
 							console.log(video.currentTime);
 							var now = video.currentTime;
 							nextStep(now);
-							}
 							//highlightCommand('vidPlay');
 						}
 
@@ -187,9 +186,9 @@
 					
 	       			}
 	        	}
-			};
+			}
 			//recStatus.innerHTML += str;
-		}
+		};
 
 		// Start speech recognition
 		var startRec = function() {
