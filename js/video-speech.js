@@ -103,7 +103,7 @@
 						}
 						
 						// fastforward 10sec
-						else if (userSaid(str, 'fast forward')) {
+						else if (userSaid(str, 'fast forward') || userSaid(str, 'fastforward')) {
 							skip(10);
 							//highlightCommand('vidPlay');
 						}
@@ -120,7 +120,7 @@
 							//highlightCommand('vidPlay');
 						}
 
-						else if (userSaid(str, 'before'), userSaid(str, 'go back one step')) {
+						else if (userSaid(str, 'before') || userSaid(str, 'go back one step')) {
 							var now = video.currentTime;
 							//highlightCommand('vidPlay');
 						}
