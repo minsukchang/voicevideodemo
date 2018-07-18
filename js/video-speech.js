@@ -92,7 +92,7 @@
 							for (i = equaltime.length; i > 0 ; i--) { 
 								if (now < equaltime[i]){
 									video.currentTime = equaltime[i+1];
-									
+									console.log(video.currentTime);
 								}
 							}
 							//highlightCommand('vidPlay');
