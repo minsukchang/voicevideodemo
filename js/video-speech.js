@@ -191,7 +191,7 @@
 	        	}
 			}
 			//recStatus.innerHTML += str;
-		};
+		}
 
 		// Start speech recognition
 		var startRec = function() {
