@@ -23,7 +23,7 @@
 		<br><br>
 		<button id="startRecBtn">Start Recognition</button>
 		<button id="stopRecBtn">Stop Recognition</button>
-		<button id="nextBtn"> next </button>
+		<button id="nextBtn" onclick="printTime()"> next </button>
 		<div>
 		<p>Available commands are:</p></div>
 		<ul>
@@ -34,7 +34,7 @@
 			<li id="vidVolOn">"mute"</li>
 			<li id="vidVolOff">"unmute"</li>
 			<li id="vidVolInc">"louder"</li>
-			<li id="vidVolDec">"softer" or "quiter"</li>
+			<li id="vidVolDec">"softer" or "quieter"</li>
 			<li id="vidVolInc">"fastforward (fastforward 10 seconds)"</li>
 			<li id="vidVolDec">"rewind (rewind 10 seconds)"</li>
 			<li id="vidVolInc">"set marker here"</li>
@@ -47,10 +47,14 @@
 	<script>
 		function SetVolume(val)
 		{
-			var player = document.getElementById('video');
+			var player = document.getElementById('v');
 			console.log('Before: ' + player.volume);
 			player.volume = val / 100;
 			console.log('After: ' + player.volume);
+		}
+		function printTime(){
+			var video = document.getElementById('v');
+			console.log(video.currentTime)
 		}
 	</script>
 	<!--
