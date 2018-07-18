@@ -10,7 +10,7 @@
 	//var next = document.getElementById('nextBtn');
 
 	var equaltime = [0, 68.4, 136.8, 205.2, 273.6, 342];
-	var stepbased = [33.589196, 53.787267, 77.805879, 119.321606, 164.855763, 184.099407];
+	var stepbased = [0, 33.589196, 53.787267, 77.805879, 119.321606, 164.855763, 184.099407];
 	var textbased = [];
 	var shotchange = [];
 	var videocaption = [];
@@ -21,6 +21,21 @@
 			if (stepbased[i] < now && now < stepbased[i+1]){
 				video.currentTime = stepbased[i+1];
 				console.log("skipped to: "+video.currentTime);
+			}
+		}
+	}
+
+	var prevStep = function(now){
+		if (now < stepbased[1]){
+			video.currentTime = stepbased[0];
+		}
+		else{
+			var i;
+			for (i = 1; i < stepbased.length ; i++) { 
+				if (stepbased[i] < now && now < stepbased[i+1]){
+					video.currentTime = stepbased[i-1];
+					console.log("skipped to: "+video.currentTime);
+				}
 			}
 		}
 	}
@@ -105,7 +120,7 @@
 							//highlightCommand('vidPlay');
 						}
 
-						else if (userSaid(str, 'before')) {
+						else if (userSaid(str, 'before'), userSaid(str, 'go back one step')) {
 							var now = video.currentTime;
 							//highlightCommand('vidPlay');
 						}
@@ -120,11 +135,6 @@
 						// going to the custom marker
 						else if (userSaid(str, 'go to marker')) {
 							video.currentTime = marker;
-							//highlightCommand('vidPlay');
-						}
-
-						else if (userSaid(str, 'rewind')) {
-							video.currentTime -= 10;
 							//highlightCommand('vidPlay');
 						}
 
