@@ -9,6 +9,11 @@
 	var marker = 0;
 	//var next = document.getElementById('nextBtn');
 
+	var grammar = "#JSGF V1.0; grammar keyword; public <keyword> = play|stop|hold|wait|replay|mute|unmute|louder|softer|quieter|fastforward|rewind|set|marker|here|next|before"
+	var speechRecognitionList = new SpeechGrammarList();
+
+
+
 	var equaltime = [0, 68.4, 136.8, 205.2, 273.6, 342];
 	var stepbased = [0, 33.589196, 53.787267, 77.805879, 119.321606, 164.855763, 184.099407];
 	var textbased = [];
@@ -44,6 +49,9 @@
 	var rec = null;
 	try {
 		rec = new webkitSpeechRecognition();
+		var speechRecognitionList = new SpeechGrammarList();
+		speechRecognitionList.addFromString(grammar, 1);
+		rec.grammars = speechRecognitionList;
 	} 
 	catch(e) {
     	document.querySelector('.msg').setAttribute('data-state', 'show');
