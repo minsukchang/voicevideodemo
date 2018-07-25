@@ -46,9 +46,9 @@
 	var rec = null;
 	try {
 		rec = new webkitSpeechRecognition();
-		var speechRecognitionList = new SpeechGrammarList();
-		speechRecognitionList.addFromString(grammar, 1);
-		rec.grammars = speechRecognitionList;
+		//var speechRecognitionList = new SpeechGrammarList();
+		//speechRecognitionList.addFromString(grammar, 1);
+		//rec.grammars = speechRecognitionList;
 	} 
 	catch(e) {
     	document.querySelector('.msg').setAttribute('data-state', 'show');
