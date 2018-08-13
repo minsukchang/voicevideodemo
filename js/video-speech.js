@@ -17,11 +17,17 @@
 	var shotchange = [];
 	var videocaption = [];
 
+
+	video.getCurrentTime()
+	video.seekTo()
+	
+
 	var nextStep = function(now){
 		var i;
 		for (i = 0; i < stepbased.length ; i++) { 
 			if (stepbased[i] < now && now < stepbased[i+1]){
 				video.currentTime = stepbased[i+1];
+				
 				console.log("skipped to: "+video.currentTime);
 			}
 		}
@@ -74,7 +80,8 @@
 
 		var skip = function(value) {
 			var video = document.getElementById(video);
-			video.currentTime += value;
+			video.seekTo(video.getCurrentTime()+value);
+			//video.currentTime += value; //HTML5
 		} 
 
 		// Highlights the relevant command that was recognised in the command list for display purposes
@@ -103,7 +110,8 @@
 		       			
 						if (userSaid(str, 'replay')) {
 							video.currentTime = 0;
-							video.play();
+							video.playVideo();
+							//video.play();//HTML5
 							//highlightCommand('vidReplay');
 						}
 						
@@ -120,8 +128,8 @@
 						}
 
 						else if (userSaid(str, 'next')) {
-							console.log(video.currentTime);
-							nextStep(video.currentTime);
+							console.log(video.getCurrentTime());
+							nextStep(video.getCurrentTime());
 							//highlightCommand('vidPlay');
 						}
 
@@ -131,40 +139,41 @@
 						}
 
 						// setting a custom marker
-						else if (userSaid(str, 'set marker here')) {
-							marker = video.currentTime;
-							markerText.innerHTML = Math.round(marker*10/10);
+						//else if (userSaid(str, 'set marker here')) {
+						//	marker = video.getCurrentTime;
+						//	markerText.innerHTML = Math.round(marker*10/10);
 							//highlightCommand('vidPlay');
-						}
+						//}
 						
 						// going to the custom marker
-						else if (userSaid(str, 'go to marker')) {
-							video.currentTime = marker;
+						//else if (userSaid(str, 'go to marker')) {
+						//	video.currentTime = marker;
 							//highlightCommand('vidPlay');
-						}
+						//}
 
 						// Play the video
 						else if (userSaid(str, 'play')) {
-							video.play();
+							//video.play(); video tag
+							video.playVideo(); //youtube iframe
 							//highlightCommand('vidPlay');
 						}
 						// Stop the video
 						else if (userSaid(str, 'stop')) {
-							video.pause();
+							video.pauseVideo();
 							//highlightCommand('vidStop');
 						}
 						else if (userSaid(str, 'hold on')) {
-							video.pause();
+							video.pauseVideo();
 							//highlightCommand('vidStop');
 						}
 						else if (userSaid(str, 'wait')) {
-							video.pause();
+							video.pauseVideo();
 							//highlightCommand('vidStop');
 						}
 						// If the user said 'volume' then parse it even further
 						else if (userSaid(str, 'louder')) {
 							// Check the current volume setting of the video
-							var vol = Math.floor(video.volume * 10) / 10;
+							var vol = Math.floor(video.getVolume() * 10) / 10;
 							// Increase the volume
 							
 							if (vol >= 0.9) video.volume = 1;
@@ -174,7 +183,7 @@
 						// Decrease the volume
 						else if (userSaid(str, 'softer')) {
 							// Check the current volume setting of the video
-							var vol = Math.floor(video.volume * 10) / 10;
+							var vol = Math.floor(video.getVolume() * 10) / 10;
 							
 							if (vol <= 0.1) video.volume = 0;
 							else video.volume -= 0.1;
@@ -182,7 +191,7 @@
 						}
 						else if (userSaid(str, 'quieter')) {
 							// Check the current volume setting of the video
-							var vol = Math.floor(video.volume * 10) / 10;
+							var vol = Math.floor(video.getVolume() * 10) / 10;
 							
 							if (vol <= 0.1) video.volume = 0;
 							else video.volume -= 0.1;
@@ -191,12 +200,12 @@
 
 						// Turn the volume off (mute)
 						else if (userSaid(str, 'mute')) {
-							video.muted = true;
+							video.mute();
 							//highlightCommand('vidVolOff');
 						}
 						// Turn the volume on (unmute)
 						else if (userSaid(str, 'unmute')) {
-							video.muted = false;
+							video.unMute;
 							//highlightCommand('vidVolOn');
 						}
 						}
