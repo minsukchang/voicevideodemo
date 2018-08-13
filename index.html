@@ -7,11 +7,29 @@
 </head>
 <body>
 	<main role="main">
-		<h1><abbr title="HyperText Markup Language 5"></abbr>HTML5</abbr> Video Voice Control with the Web Speech <abbr title="Application Programming Interface">API</abbr></h1>
-		<div class="msg" data-state="hidden">This browser doesn't support the WebKit Web Speech <abbr title="Application Programming Interface">API</abbr>. You need the latest version of Chrome. Sorry!</div>
-		<video id="v" controls preload="metadata">
+		<h1>What would you like to learn today</h1>
+		
+		<div>
+			<p>
+				Some suggestions, <a href="https://www.youtube.com/results?search_query=how+to+put+on+eyeliner"> make-up</a>, how to play a song on an instrument you have, <a href = "https://www.youtube.com/results?search_query=how+to+do+a+coin+trick">magic trick</a>, etc. 
+			</p>
+		</div>
+	
+		Copy and paste the URL here: <input type="url" id="channel" size="60">  </input>
+		<button id="mybutton" type="button" onClick="changeVideo();">Change Video</button>
+		<br><br>
+
+		<iframe id="v"
+			width="640" height="360"
+			src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
+			frameborder="0"
+			style="border: solid 4px #37474F"
+		></iframe>
+		
+		<!--<video id="v" controls preload="metadata">
 			<source src="video/crane.mp4" type="video/mp4">
-		</video>
+		</video> 
+		-->
 		<!-- <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
 		-->
 
@@ -58,6 +76,60 @@
 			var video = document.getElementById('v');
 			console.log(video.currentTime)
 		}
+
+		   // 2. This code loads the IFrame Player API code asynchronously.
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		// 3. This function creates an <iframe> (and YouTube player)
+		//    after the API code downloads.
+		var player;
+		function onYouTubeIframeAPIReady() {
+		player = new YT.Player('v', {
+			height: '390',
+			width: '640',
+			//videoId: '',
+			events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange,
+			}
+		});
+		}
+
+		// 4. The API will call this function when the video player is ready.
+		function onPlayerReady(event) {
+		event.target.playVideo();
+		}
+
+		// 5. The API calls this function when the player's state changes.
+		//    The function indicates that when playing a video (state=1),
+		//    the player should play for six seconds and then stop.
+		var done = false;
+		function onPlayerStateChange(event) {
+		if (event.data == YT.PlayerState.PLAYING && !done) {
+			setTimeout(stopVideo, 6);
+			done = true;
+		}
+		}
+
+		var url;
+		function changeVideo(event){
+		url = document.getElementById("channel").value;
+		//console.log(url);
+		url = url.replace("watch?v=", "embed/");
+		//console.log(url);
+		document.getElementById("player").src = url;
+		event.target.playVideo();
+		}
+
+		function stopVideo() {
+		player.stopVideo();
+		}
+
+
+
 	</script>
 	<!--
 	<script>
