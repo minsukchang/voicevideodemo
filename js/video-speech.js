@@ -15,12 +15,7 @@
 	var stepbased = [0, 33.589196, 53.787267, 77.805879, 119.321606, 164.855763, 184.099407];
 	var textbased = [];
 	var shotchange = [];
-	var videocaption = [];
-
-
-	video.getCurrentTime()
-	video.seekTo()
-	
+	var videocaption = [];	
 
 	var nextStep = function(now){
 		var i;
